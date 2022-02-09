@@ -112,7 +112,7 @@ class CompanyController extends Controller
         $image = $request->file("image");
         $path = Storage::disk("public_uploads")->putFileAs('files', $image, 'image_' . $newCompany['postcode'] . '.' . $extension); 
         
-        /* $company = Company::insertGetId([
+        $company = Company::insertGetId([
             'name' => $newCompany['name'],
             'email' => $newCompany['email'],
             'postcode' => $newCompany['postcode'],
@@ -127,7 +127,7 @@ class CompanyController extends Controller
             'url' => $newCompany['url'],
             'license_number' => $newCompany['license_number'],
             'image' => 'image_' . $newCompany['postcode'] . '.' . $extension
-        ]); */
+        ]);
 
         try {
             if ($company) {
